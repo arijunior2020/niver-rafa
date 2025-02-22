@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,20 +12,24 @@
             background: linear-gradient(to right, #ff9a9e, #fad0c4);
             padding: 50px;
         }
+
         .container {
             max-width: 600px;
             margin: auto;
             background: white;
             padding: 20px;
             border-radius: 10px;
-            box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
         }
+
         h1 {
             color: #d63384;
         }
+
         p {
             font-size: 18px;
         }
+
         .btn {
             background-color: #d63384;
             color: white;
@@ -35,9 +40,11 @@
             cursor: pointer;
             margin-top: 20px;
         }
+
         .hidden {
             display: none;
         }
+
         .photos {
             margin-top: 20px;
             display: grid;
@@ -45,19 +52,21 @@
             gap: 10px;
             justify-content: center;
         }
+
         img {
             width: 200px;
             height: auto;
             margin: 10px;
             border-radius: 10px;
         }
-
     </style>
 </head>
+
 <body>
     <div class="container">
         <h1>Feliz Aniversário, minha irmã querida! 🎉🎂</h1>
-        <p>Que Deus abençoe sua vida com muito amor, saúde e felicidade. Você é uma irmã incrível e merece tudo de melhor! Que esse novo ciclo seja repleto de conquistas e momentos inesquecíveis.</p>
+        <p>Que Deus abençoe sua vida com muito amor, saúde e felicidade. Você é uma irmã incrível e merece tudo de
+            melhor! Que esse novo ciclo seja repleto de conquistas e momentos inesquecíveis.</p>
         <p>Com todo meu carinho,</p>
         <p><strong>Seu irmão</strong> ❤️</p>
         <div>
@@ -65,10 +74,9 @@
         </div>
         <button class="btn" onclick="abrirPresente()">Abra Seu Presente</button>
     </div>
-    
+
     <div id="presente" class="container hidden">
         <h2>Surpresa! 🎁</h2>
-        abrirPresente();
         <div class="photos">
             <img src="rafa01.jpeg" alt="Foto 1">
             <img src="rafa02.jpeg" alt="Foto 2">
@@ -95,27 +103,30 @@
             <img src="rafa07.jpeg" alt="Foto 3">
             <img src="rafa08.jpeg" alt="Foto 3">
         </div>
-        <audio controls autoplay>
+        <audio id="musica" controls>
             <source src="musicas/04. Como é grande o meu amor por você.mp3" type="audio/mp3">
             Seu navegador não suporta áudio.
         </audio>
     </div>
-    
+
     <script>
         function abrirPresente() {
-        document.querySelector('.container').classList.add('hidden');
-        document.getElementById('presente').classList.remove('hidden');
-    
-        // Obtém o elemento de áudio
-        let musica = document.getElementById('musica');
-    
-        // Tenta iniciar a reprodução após interação do usuário
-        musica.play().then(() => {
-            console.log("Áudio iniciado com sucesso!");
-        }).catch(error => {
-            console.log("Autoplay bloqueado pelo navegador:", error);
-        });
-    }
+            document.querySelector('.container').classList.add('hidden');
+            document.getElementById('presente').classList.remove('hidden');
+
+            // Obtém o elemento de áudio
+            let musica = document.getElementById('musica');
+
+            // Inicia a reprodução após a interação do usuário
+            if (musica) {
+                musica.play().then(() => {
+                    console.log("Áudio iniciado com sucesso!");
+                }).catch(error => {
+                    console.log("Autoplay bloqueado pelo navegador:", error);
+                });
+            }
+        }
     </script>
 </body>
+
 </html>
